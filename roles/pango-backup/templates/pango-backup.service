@@ -1,0 +1,10 @@
+Description=Backup yo VMs
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/local/bin/pango-backup.bash
+Environment=BORG_PASSPHRASE={{ borg_passphrase }}"
+Environment="BORG_URI={{ borg_uri }}"
+[Install]
+WantedBy=multi-user.target

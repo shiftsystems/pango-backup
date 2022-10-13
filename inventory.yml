@@ -1,0 +1,6 @@
+all:
+  hosts:
+    muh_server:
+      backup_schedule: "daily" # see systemd time docs for available parameters along with cron syntax https://www.freedesktop.org/software/systemd/man/systemd.time.html#Calendar%20Events
+      borg_passphrase: "GENERATE_ONe"
+      borg_uri: "ssh://repoid3@repoid.repo.borgbase.com/./repo"

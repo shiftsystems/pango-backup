@@ -2,7 +2,7 @@
 Description=Schedule for backing up vms
 
 [Timer]
-OnCalendar={{ backup_schedule }}
+OnCalendar="{{ backup_schedule }}"
 
 [Install]
 WantedBy=timers.target

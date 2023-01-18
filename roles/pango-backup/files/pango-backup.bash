@@ -37,3 +37,8 @@ for i in $(virsh list --name); do
     echo "$backup_path has been removed";
 done
 
+echo "pruning backups"
+borg prune -v --list --keep-within=10d $BORG_URI
+
+echo "compacting repo"
+borg compact $BORG_URI

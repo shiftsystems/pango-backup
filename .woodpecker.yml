@@ -10,3 +10,4 @@ pipeline:
       - eval $AUTH_COMMAND
       - eval $DEPLOY_COMMAND
     secrets: [AUTH_COMMAND, DEPLOY_COMMAND]
+branches: [master, main]

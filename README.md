@@ -8,6 +8,11 @@ A way to automate VM backups with Ansible systemd, and borg backup
 3. copy the inventory outside the folder
 4. edit the inventory so it contains  your info
 5. run the playbook ```ansible-playbook -i <path to inventory> pango-backup.yml --ask-become-pass```
+6. Generate an SSH keypair as root, and start an inital backup if your backup target requires SSH. Backups will fail since you can't verify the host key.
+  * `su -`
+  * `ssh-keygen -t ed25519`
+  * `export BORG_URI=ssh://s44gz68x@s44gz68x.repo.borgbase.com/./repo && export BORG_PASSPHRASE=SECRET_FROM_INVENTORY`
+  * `/usr/local/bin/pango-backup.bash`
 
 ## Viewing your backups
 

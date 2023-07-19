@@ -1,31 +1,31 @@
 - name: Install borg
-  package:
+  ansible.builtin.package:
     name: borgbackup
     state: latest
   become: true
-  
-#- name: setup repository
 
-#- name: configure retention policy
+# - name: setup repository
 
-- name: copy script
-  copy:
+# - name: configure retention policy
+
+- name: Copy script
+  ansible.builtin.copy:
     src: pango-backup.bash
     dest: /usr/local/bin/pango-backup.bash
     mode: "755"
   become: true
 
-- name: copy systemd files 
-  template:
+- name: Copy systemd files
+  ansible.builtin.template:
     src: "{{ item }}"
     dest: "/etc/systemd/system/{{ item }}"
   become: true
   with_items:
-  - pango-backup.service
-  - pango-backup.timer
+    - pango-backup.service
+    - pango-backup.timer
 
-- name: enable backup timer
-  systemd:
+- name: Enable backup timer
+  ansible.builtin.systemd:
     name: pango-backup.timer
     state: restarted
     enabled: true

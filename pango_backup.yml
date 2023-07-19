@@ -1,0 +1,6 @@
+- hosts: all
+  name: Pango Backup
+  tasks:
+    - name: Deploy Pango Backup
+      ansible.builtin.import_role:
+        name: pango_backup
